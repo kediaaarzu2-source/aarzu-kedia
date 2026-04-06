@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Marketing, Aarzu Kedia</title>
+  <meta name="description" content="Case studies and video testimonials, Plotline and Upraised">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #0D0F14; --surface: #141720; --raised: #1C2030;
+      --border:  #252B3B; --border-2: #303848;
+      --text-1:  #F4F5FA; --text-2: #C4CAD8; --text-3: #8A94A8; --text-4: #5A6278;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans:  'DM Sans', -apple-system, sans-serif;
+      --max: 760px; --r: 10px;
+    }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text-1); font-family: var(--sans); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    strong { color: var(--text-1); font-weight: 600; }
+    .page { max-width: var(--max); margin: 0 auto; padding: 52px 28px 120px; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,15,20,.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto; padding: 0 28px;
+      height: 50px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name { font-family: var(--serif); font-size: 15px; color: var(--text-1); }
+    .nav-back {
+      font-size: 12px; color: var(--text-3); padding: 5px 10px;
+      border-radius: 6px; transition: color .15s, background .15s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text-1); background: var(--raised); }
+    .page-hero { padding: 0 0 40px; }
+    .page-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--text-4); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .page-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .page-title {
+      font-family: var(--serif); font-size: clamp(28px, 5vw, 40px);
+      font-weight: 400; color: var(--text-1); line-height: 1.1; margin-bottom: 12px;
+    }
+    .page-sub { font-size: 15px; color: var(--text-2); line-height: 1.75; max-width: 560px; }
+    .label {
+      font-size: 10.5px; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--text-4); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .sec { margin-bottom: 52px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+    }
+    .card-body { padding: 22px 24px; }
+    .card-title { font-size: 15px; font-weight: 600; color: var(--text-1); margin-bottom: 6px; }
+    .card-sub { font-size: 13px; color: var(--text-3); margin-bottom: 14px; line-height: 1.6; }
+    .card-img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
+    .stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 12px; }
+    .stat-item { display: flex; flex-direction: column; gap: 3px; }
+    .stat-v { font-size: 18px; font-family: var(--serif); color: var(--text-1); }
+    .stat-l { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-4); }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag {
+      font-size: 11.5px; padding: 3px 10px; border: 1px solid var(--border);
+      border-radius: 5px; color: var(--text-3); background: var(--raised);
+    }
+    .link-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border: 1px solid var(--border-2); border-radius: 8px;
+      font-size: 13px; color: var(--text-2); background: var(--surface);
+      transition: border-color .15s, color .15s; margin-top: 14px;
+    }
+    .link-btn:hover { border-color: var(--text-3); color: var(--text-1); }
+    .placeholder {
+      border: 1px dashed var(--border-2); border-radius: var(--r);
+      padding: 32px 24px; text-align: center;
+      color: var(--text-4); font-size: 13px; font-style: italic;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  
+    .nav-pill {
+      font-size: 12px; padding: 5px 12px; border: 1px solid var(--border);
+      border-radius: 20px; color: var(--text-3); background: var(--surface);
+      transition: border-color .15s, color .15s;
+    }
+    .nav-pill:hover { border-color: var(--border-2); color: var(--text-1); }
+    .nav-pill.active { border-color: var(--border-2); color: var(--text-1); background: var(--raised); }
+  </style>
+
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name" style="text-decoration:none;">Aarzu Kedia</a>
+    <a href="Aarzu_Kedia_v4.html" class="nav-back">← Back</a>
+  </div>
+</nav>
+<div class="page">
+
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:40px;">
+    <a href="customer_marketing.html" class="nav-pill active">Customer Marketing</a>
+    <a href="product_launches.html" class="nav-pill">Product Launches & Lifecycle</a>
+    <a href="demand_gen_seo.html" class="nav-pill">Organic Demand Gen</a>
+  </div>
+  <div class="page-hero">
+    <p class="page-eyebrow">Customer Marketing</p>
+    <h1 class="page-title">Proof that actually gets<br>used in the sales process.</h1>
+    <p class="page-sub">Built a library of 9 video testimonials and 20+ case studies at Plotline, segmented by vertical, deal stage, and objections. Deployed across sales and lifecycle touchpoints to influence 40%+ of closed ACV.</p>
+  </div>
+
+  <div class="sec">
+    <p class="label">Video case studies, Plotline</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;align-items:stretch;">
+      <div style="display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--surface);">
+        <div style="position:relative;">
+          <iframe src="https://www.youtube.com/embed/c0LlT_3J-_0" title="Upstox x Plotline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;display:block;aspect-ratio:16/9;"></iframe>
+          <button onclick="document.querySelector('#vid-upstox').requestPictureInPicture?.()" title="Watch in PiP" style="display:none"></button>
+        </div>
+        <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:3px;">Upstox</div>
+            <div style="font-size:12px;color:var(--text-4);">6X lift in Plus Plan monetization</div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=c0LlT_3J-_0" target="_blank" style="font-size:11px;color:var(--text-4);margin-top:8px;display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:5px;padding:3px 8px;width:fit-content;transition:color .15s,border-color .15s;" onmouseover="this.style.color='var(--text-1)';this.style.borderColor='var(--border-2)'" onmouseout="this.style.color='var(--text-4)';this.style.borderColor='var(--border)'">Watch on YouTube ↗</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--surface);">
+        <iframe src="https://www.youtube.com/embed/EBljkmP9KBg" title="Chalo x Plotline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;display:block;aspect-ratio:16/9;"></iframe>
+        <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:3px;">Chalo</div>
+            <div style="font-size:12px;color:var(--text-4);">Drives adoption of premium passes</div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=EBljkmP9KBg" target="_blank" style="font-size:11px;color:var(--text-4);margin-top:8px;display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:5px;padding:3px 8px;width:fit-content;transition:color .15s,border-color .15s;" onmouseover="this.style.color='var(--text-1)';this.style.borderColor='var(--border-2)'" onmouseout="this.style.color='var(--text-4)';this.style.borderColor='var(--border)'">Watch on YouTube ↗</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--surface);">
+        <iframe src="https://www.youtube.com/embed/eQRla189pJ8" title="EatSure x Plotline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;display:block;aspect-ratio:16/9;"></iframe>
+        <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:3px;">EatSure</div>
+            <div style="font-size:12px;color:var(--text-4);">3X'd BOGO conversions</div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=eQRla189pJ8" target="_blank" style="font-size:11px;color:var(--text-4);margin-top:8px;display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:5px;padding:3px 8px;width:fit-content;transition:color .15s,border-color .15s;" onmouseover="this.style.color='var(--text-1)';this.style.borderColor='var(--border-2)'" onmouseout="this.style.color='var(--text-4)';this.style.borderColor='var(--border)'">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-body">
+        <div class="card-title">Video testimonials, coordinated end-to-end</div>
+        <div class="card-sub">Each story selected for vertical fit and deal stage relevance, not just outcomes. Chalo, EatSure, Upstox, Zupee, CoinDCX, Kredivo and more. A mid-market fintech closes on a Chalo story, not a Dream11 story, deployed at the right moment in the sales cycle, not just available on a page.</div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-v">40%+</span><span class="stat-l">closed ACV influenced</span></div>
+          <div class="stat-item"><span class="stat-v">25–30%</span><span class="stat-l">deal decay reduction</span></div>
+        </div>
+        <div class="tag-row" style="margin-top:14px;">
+          <a href="https://www.plotline.so/success-stories/coindcx-uplift-in-users-who-trade-crypto-futures/" target="_blank" class="tag" style="cursor:pointer;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.color='var(--text-1)'" onmouseout="this.style.borderColor='';this.style.color=''">CoinDCX ↗</a>
+          <a href="https://www.plotline.so/success-stories/kredivo-boosts-traffic-and-engagement/" target="_blank" class="tag" style="cursor:pointer;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.color='var(--text-1)'" onmouseout="this.style.borderColor='';this.style.color=''">Kredivo ↗</a>
+          <a href="https://www.plotline.so/success-stories/lucky-hands/" target="_blank" class="tag" style="cursor:pointer;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.color='var(--text-1)'" onmouseout="this.style.borderColor='';this.style.color=''">LuckyHands ↗</a>
+          <a href="https://www.plotline.so/success-stories/airtel-xstream-play/" target="_blank" class="tag" style="cursor:pointer;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.color='var(--text-1)'" onmouseout="this.style.borderColor='';this.style.color=''">Airtel Xstream ↗</a>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+          <a href="https://www.youtube.com/@PlotlineInc" target="_blank" class="link-btn" style="margin-top:0;">All videos on Plotline YouTube ↗</a>
+          <a href="https://www.plotline.so/success-stories" target="_blank" class="link-btn" style="margin-top:0;">All 20+ written stories ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">Where it gets deployed</div>
+        <div class="card-sub">Social proof only works if it shows up at the right moment. Built the segmentation and sequencing logic for where each story lives.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+          <div style="font-size:13px;color:var(--text-2);padding-left:16px;position:relative;line-height:1.5;"><span style="position:absolute;left:0;color:var(--text-4);">→</span><strong>Homepage, pricing, all product and feature pages</strong>, brand-level proof for visitors still forming an opinion</div>
+          <div style="font-size:13px;color:var(--text-2);padding-left:16px;position:relative;line-height:1.5;"><span style="position:absolute;left:0;color:var(--text-4);">→</span><strong>Sales reachouts</strong>, vertical-matched story dropped into first-touch and follow-up sequences</div>
+          <div style="font-size:13px;color:var(--text-2);padding-left:16px;position:relative;line-height:1.5;"><span style="position:absolute;left:0;color:var(--text-4);">→</span><strong>Marketing emails to prospects not at buying stage</strong>, nurture through relatability, not product pitches</div>
+          <div style="font-size:13px;color:var(--text-2);padding-left:16px;position:relative;line-height:1.5;"><span style="position:absolute;left:0;color:var(--text-4);">→</span><strong>Pre-call, post-demo, objection-handling</strong>, sequenced into the sales process at each stage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <p class="label">At Upraised</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">Testimonial library, built around relatability, not achievement</div>
+        <div class="card-sub">The aspiring PM closes on a story that mirrors their situation, not the most impressive outcome. Library deployed at pre-call, post-demo, and objection-handling touchpoints, sequenced into the sales process, not just sitting on a page. Deal decay down 25–30%, close rate moved from ~10% toward 15–18%.</div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-v">25–30%</span><span class="stat-l">deal decay reduction</span></div>
+          <div class="stat-item"><span class="stat-v">15–18%</span><span class="stat-l">close rate (from ~10%)</span></div>
+        </div>
+        <div class="tag-row"><span class="tag">Pre-call</span><span class="tag">Post-demo</span><span class="tag">Objection-handling</span></div>
+        <a href="https://www.youtube.com/@Upraised" target="_blank" class="link-btn">Upraised YouTube ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
