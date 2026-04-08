@@ -25,12 +25,27 @@
     .page { max-width: var(--max); margin: 0 auto; padding: 52px 28px 120px; }
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,15,20,.92); backdrop-filter: blur(20px);
+      background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
       max-width: var(--max); margin: 0 auto; padding: 0 28px;
       height: 50px; display: flex; align-items: center; justify-content: space-between;
+    }
+
+    [data-theme="light"] {
+      --bg:       #FAF7EF;
+      --surface:  #FFFDF5;
+      --raised:   #F4F0E4;
+      --border:   #E8E2D0;
+      --border-2: #D4CCBA;
+      --text-1:   #1A1610;
+      --text-2:   #3A342A;
+      --text-3:   #6B6050;
+      --text-4:   #9A9080;
+      --white:    #1A1610;
+      --accent:   #2A2418;
+      --dim:      rgba(0,0,0,.04);
     }
     .nav-name { font-family: var(--serif); font-size: 15px; color: var(--text-1); }
     .nav-back {
@@ -38,6 +53,16 @@
       border-radius: 6px; transition: color .15s, background .15s;
       display: flex; align-items: center; gap: 6px;
     }
+
+    .theme-toggle {
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1px solid var(--border-2); background: var(--surface);
+      color: var(--text-3); cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: border-color .15s, color .15s; flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--text-3); color: var(--text-1); }
+    .theme-toggle svg { width: 15px; height: 15px; }
     .nav-back:hover { color: var(--text-1); background: var(--raised); }
     .page-hero { padding: 0 0 40px; }
     .page-eyebrow {
@@ -111,7 +136,10 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-name" style="text-decoration:none;">Aarzu Kedia</a>
-    <a href="index.html" class="nav-back">← Back</a>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="index.html" class="nav-back">← Back</a>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon-dark"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon-light" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
   </div>
 </nav>
 <div class="page">
@@ -214,5 +242,27 @@
     </div>
   </div>
 </div>
+<script>
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateThemeIcon(next);
+  }
+
+  function updateThemeIcon(theme) {
+    const dark = document.getElementById('theme-icon-dark');
+    const light = document.getElementById('theme-icon-light');
+    if (!dark || !light) return;
+    if (theme === 'light') { dark.style.display = 'none'; light.style.display = ''; }
+    else { dark.style.display = ''; light.style.display = 'none'; }
+  }
+</script>
 </body>
 </html>
